@@ -942,7 +942,7 @@ inline void RmGen()
 
 			if (Enemy.Hlth < 1 && Player.Hlth > 0)
 			{
-				double EnP = (100 + RmNum * (rand()%11+6)) * 0.1; // enemy exp value
+				double EnP = (RmNum * (rand() % 11 + 6) + 100 ) * 0.1; // enemy exp value
 				EP = EP + EnP; // accumulates enemy exp 
 				++RmNum;
 				ScoreFunc(EnP);

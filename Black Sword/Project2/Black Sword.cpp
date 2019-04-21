@@ -223,14 +223,12 @@ int main()
 			system("pause");
 			RmGen();
 		}
-		if (Player.Hlth <= 0|| restart == 2)
+		if ( restart == 2)
 		{
 			string PlayerScoreRef = Player.PlayerName;
 			vector<vector<string>> scores = createVector("highscores.txt");
-			outputScores(scores);
 			vector<string> newScore{ PlayerScoreRef, to_string(Score) };
 			scores = updateVector(scores, newScore);
-			outputScores(scores);
 			saveToFile(scores, "highscores.txt");
 			++exit;
 		}
@@ -238,10 +236,8 @@ int main()
 		{
 			string PlayerScoreRef = Player.PlayerName;
 			vector<vector<string>> scores = createVector("highscores.txt");
-			outputScores(scores);
 			vector<string> newScore{ PlayerScoreRef, to_string(Score) };
 			scores = updateVector(scores, newScore);
-			outputScores(scores);
 			saveToFile(scores, "highscores.txt");
 			main();
 		}
