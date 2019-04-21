@@ -5,3 +5,5 @@ planet simulation
 risk-type board game
 
 implement graphics and ui
+
+clock that keeps time as close to global clock as possible
