@@ -32,27 +32,27 @@ void NewWeapon()//weapon
 	{
 		if (b == 1)
 		{
-			Armor.ItemName = "Shortsword";
+			Weapon.ItemName = "Shortsword";
 			Player.Atk = Player.Atk + RmNum * 0.8;
 		}
 		if (b == 2)
 		{
-			Armor.ItemName = "Hatchet";
+			Weapon.ItemName = "Hatchet";
 			Player.Atk = Player.Atk + RmNum * 0.9;
 		}
 		if (b == 3)
 		{
-			Armor.ItemName = "Longsword";
+			Weapon.ItemName = "Longsword";
 			Player.Atk = Player.Atk + RmNum * 1.1;
 		}
 		if (b == 4)
 		{
-			Armor.ItemName = "E-Tool";
+			Weapon.ItemName = "E-Tool";
 			Player.Atk = Player.Atk + RmNum * 1.2;
 		}
 		if (b == 5)
 		{
-			Armor.ItemName = "Battle Axe";
+			Weapon.ItemName = "Battle Axe";
 			Player.Atk = Player.Atk + RmNum * 1.3;
 		}
 	}
@@ -60,27 +60,27 @@ void NewWeapon()//weapon
 	{
 		if (b == 1)
 		{
-			Armor.ItemName = "Shortbow";
+			Weapon.ItemName = "Shortbow";
 			Player.Atk = Player.Atk + RmNum * 0.8;
 		}
 		if (b == 2)
 		{
-			Armor.ItemName = "Crossbow";
+			Weapon.ItemName = "Crossbow";
 			Player.Atk = Player.Atk + RmNum * 0.9;
 		}
 		if (b == 3)
 		{
-			Armor.ItemName = "Longbow";
+			Weapon.ItemName = "Longbow";
 			Player.Atk = Player.Atk + RmNum * 1.1;
 		}
 		if (b == 4)
 		{
-			Armor.ItemName = "Compoundbow";
+			Weapon.ItemName = "Compoundbow";
 			Player.Atk = Player.Atk + RmNum * 1.2;
 		}
 		if (b == 5)
 		{
-			Armor.ItemName = "Warbow";
+			Weapon.ItemName = "Warbow";
 			Player.Atk = Player.Atk + RmNum * 1.3;
 		}
 	}
@@ -88,27 +88,27 @@ void NewWeapon()//weapon
 	{
 		if (b == 1)
 		{
-			Armor.ItemName = "Stake";
+			Weapon.ItemName = "Stake";
 			Player.Atk = Player.Atk + RmNum * 0.8;
 		}
 		if (b == 2)
 		{
-			Armor.ItemName = "Spear";
+			Weapon.ItemName = "Spear";
 			Player.Atk = Player.Atk + RmNum * 0.9;
 		}
 		if (b == 3)
 		{
-			Armor.ItemName = "Ahlspeiss";
+			Weapon.ItemName = "Ahlspeiss";
 			Player.Atk = Player.Atk + RmNum * 1.1;
 		}
 		if (b == 4)
 		{
-			Armor.ItemName = "Glaive";
+			Weapon.ItemName = "Glaive";
 			Player.Atk = Player.Atk + RmNum * 1.2;
 		}
 		if (b == 5)
 		{
-			Armor.ItemName = "Halberd";
+			Weapon.ItemName = "Halberd";
 			Player.Atk = Player.Atk + RmNum * 1.3;
 		}
 	}
@@ -116,27 +116,27 @@ void NewWeapon()//weapon
 	{
 		if (b == 1)
 		{
-			Armor.ItemName = "Cat of Nine Tails";
+			Weapon.ItemName = "Cat of Nine Tails";
 			Player.Atk = Player.Atk + RmNum * 0.8;
 		}
 		if (b == 2)
 		{
-			Armor.ItemName = "Club";
+			Weapon.ItemName = "Club";
 			Player.Atk = Player.Atk + RmNum * 0.9;
 		}
 		if (b == 3)
 		{
-			Armor.ItemName = "Mace";
+			Weapon.ItemName = "Mace";
 			Player.Atk = Player.Atk + RmNum * 1.1;
 		}
 		if (b == 4)
 		{
-			Armor.ItemName = "Flail";
+			Weapon.ItemName = "Flail";
 			Player.Atk = Player.Atk + RmNum * 1.2;
 		}
 		if (b == 5)
 		{
-			Armor.ItemName = "Morningstar";
+			Weapon.ItemName = "Morningstar";
 			Player.Atk = Player.Atk + RmNum * 1.3;
 		}
 	}
@@ -270,27 +270,27 @@ void NewWeapon2()//weapon
 	{
 		if (b == 1)
 		{
-			Armor.ItemName = "Pen";
+			Weapon.ItemName = "Pen";
 			Player.Atk = Player.Atk + RmNum * 0.8;
 		}
 		if (b == 2)
 		{
-			Armor.ItemName = "Calculator";
+			Weapon.ItemName = "Calculator";
 			Player.Atk = Player.Atk + RmNum * 0.9;
 		}
 		if (b == 3)
 		{
-			Armor.ItemName = "Katana";
+			Weapon.ItemName = "Katana";
 			Player.Atk = Player.Atk + RmNum * 1.1;
 		}
 		if (b == 4)
 		{
-			Armor.ItemName = "E-Tool";
+			Weapon.ItemName = "E-Tool";
 			Player.Atk = Player.Atk + RmNum * 1.2;
 		}
 		if (b == 5)
 		{
-			Armor.ItemName = "Pole Axe";
+			Weapon.ItemName = "Pole Axe";
 			Player.Atk = Player.Atk + RmNum * 1.3;
 		}
 
@@ -307,27 +307,27 @@ void NewWeapon2()//weapon
 	{
 		if (b == 1)
 		{
-			Armor.ItemName = "Nail Gun";
+			Weapon.ItemName = "Nail Gun";
 			Player.Atk = Player.Atk + RmNum * 0.8;
 		}
 		if (b == 2)
 		{
-			Armor.ItemName = "Five-Seven";
+			Weapon.ItemName = "Five-Seven";
 			Player.Atk = Player.Atk + RmNum * 0.9;
 		}
 		if (b == 3)
 		{
-			Armor.ItemName = "AK-47";
+			Weapon.ItemName = "AK-47";
 			Player.Atk = Player.Atk + RmNum * 1.1;
 		}
 		if (b == 4)
 		{
-			Armor.ItemName = "M-60 Machine Gun";
+			Weapon.ItemName = "M-60 Machine Gun";
 			Player.Atk = Player.Atk + RmNum * 1.2;
 		}
 		if (b == 5)
 		{
-			Armor.ItemName = "M2 Caliber .50";
+			Weapon.ItemName = "M2 Caliber .50";
 			Player.Atk = Player.Atk + RmNum * 1.3;
 		}
 
@@ -344,27 +344,27 @@ void NewWeapon2()//weapon
 	{
 		if (b == 1)
 		{
-			Armor.ItemName = "Harpoon";
+			Weapon.ItemName = "Harpoon";
 			Player.Atk = Player.Atk + RmNum * 0.8;
 		}
 		if (b == 2)
 		{
-			Armor.ItemName = "Triangle Sword";
+			Weapon.ItemName = "Triangle Sword";
 			Player.Atk = Player.Atk + RmNum * 0.9;
 		}
 		if (b == 3)
 		{
-			Armor.ItemName = "Flamberge";
+			Weapon.ItemName = "Flamberge";
 			Player.Atk = Player.Atk + RmNum * 1.1;
 		}
 		if (b == 4)
 		{
-			Armor.ItemName = "Lance";
+			Weapon.ItemName = "Lance";
 			Player.Atk = Player.Atk + RmNum * 1.2;
 		}
 		if (b == 5)
 		{
-			Armor.ItemName = "Scythe";
+			Weapon.ItemName = "Scythe";
 			Player.Atk = Player.Atk + RmNum * 1.3;
 		}
 
@@ -381,27 +381,27 @@ void NewWeapon2()//weapon
 	{
 		if (b == 1)
 		{
-			Armor.ItemName = "Flog";
+			Weapon.ItemName = "Flog";
 			Player.Atk = Player.Atk + RmNum * 0.8;
 		}
 		if (b == 2)
 		{
-			Armor.ItemName = "Sledge Hammer";
+			Weapon.ItemName = "Sledge Hammer";
 			Player.Atk = Player.Atk + RmNum * 0.9;
 		}
 		if (b == 3)
 		{
-			Armor.ItemName = "Stick With a Cat Tied to the End";
+			Weapon.ItemName = "Stick With a Cat Tied to the End";
 			Player.Atk = Player.Atk + RmNum * 1.1;
 		}
 		if (b == 4)
 		{
-			Armor.ItemName = "Amputated Leg";
+			Weapon.ItemName = "Amputated Leg";
 			Player.Atk = Player.Atk + RmNum * 1.2;
 		}
 		if (b == 5)
 		{
-			Armor.ItemName = "Skillet";
+			Weapon.ItemName = "Skillet";
 			Player.Atk = Player.Atk + RmNum * 1.3;
 		}
 
@@ -833,8 +833,8 @@ inline void RmGen()
 		int RD = (rand() % 10 + RmNum);
 
 		Enemy.Hlth = 100 + RmNum * 20;
-		Enemy.Atk = RA + RmNum * 2;
-		Enemy.Def = RD + RmNum * 2;
+		Enemy.Atk = RA + RmNum*1.6;
+		Enemy.Def = RD + RmNum*1.6;
 
 		// FIRST NAME MODIFIERS ~~~~~~~
 		if (num1 == 1)
@@ -902,7 +902,6 @@ inline void RmGen()
 
 		system("cls");
 		EHUD();
-		cout << "boss2" << endl << endl; // bug identifier
 		cout << "You enter the chamber of the Warlord " << Enemy.CharFName << " " << Enemy.CharLName << "!" << endl;
 
 		//******** ENEMY TAUNTS ~~~~~~~
@@ -934,7 +933,6 @@ inline void RmGen()
 
 			system("cls");
 			EHUD();
-			cout << "boss3" << endl << endl; // bug identifier
 			EnAtk();
 			PlrAtk();
 
@@ -973,7 +971,6 @@ inline void RmGen()
 	{
 		system("cls");
 		HUD();
-		cout << "lvl" << endl << endl; // bug identifier
 		if (Player.Soul == "Berserker")
 		{
 			cout << "You enter a warm chamber. Xain appears and gives you a gift of fire." << endl << endl;
@@ -1088,21 +1085,21 @@ inline void RmGen()
 				if (o == 7)
 				{
 					cout << "You stumble across a corpse and take its armor." << endl;
-					Weapon.ItemColor = "Hardened";
+					Armor.ItemColor = "Hardened";
 					NewArmor();
 					Player.Def = Player.Def + RmNum * 1.1;
 				}
 				if (o == 8)
 				{
 					cout << "You stumble across a corpse and take its armor." << endl;
-					Weapon.ItemColor = "Unbreakable";
+					Armor.ItemColor = "Unbreakable";
 					NewArmor();
 					Player.Def = Player.Def + RmNum * 1.3;
 				}
 				if (o == 9)
 				{
 					cout << "You stumble across a corpse and take its armor." << endl;
-					Weapon.ItemColor = "Forged";
+					Armor.ItemColor = "Forged";
 					NewArmor();
 					Player.Def = Player.Def + RmNum * 0.9;
 				}

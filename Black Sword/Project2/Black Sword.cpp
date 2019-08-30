@@ -5,29 +5,20 @@
 #include <ctime>
 #include "pch.h"
 
-using std::cout;
-using std::cin;
-using std::cerr;
-using std::endl;
-using std::string;
-using std::ifstream;
-using std::ofstream;
-
 using namespace std;
 
 int main()
 {
-	
+	ExFunc = pow(Lvl, 3);
+	RmNum = 0;
 	system("cls");
 	int exit = 0; // terminates program when =/= 0
 	int x; // player command
 
 	cout << "~~~BLACK || SWORD~~~" << endl
 		<< "____________________" << endl << endl;
-
-
-	vector<vector<string>> scores = createVector("highscores.txt");
-	outputScores(scores);
+	
+	loadhs();
 
 	cout << endl << "====================" << endl
 		<< "Enter 1 to begin." << endl
@@ -39,12 +30,13 @@ int main()
 	{
 		system("cls");
 		cout << endl << "Your Journey ended before it began and your name fades from memory." << endl;
+		system("pause");
 		++exit;
 		break;
 	}
 	case 1:
 	{
-		restart = 0;
+		restart = 2;
 		srand((unsigned)time(0));
 		Player.Hlth = 100;
 		Player.Atk = rand() % 10 + 1;
@@ -156,7 +148,7 @@ int main()
 			cout << "Old Guard: That's everything, on your way, now. " << endl << endl
 				<< "The old man opens the dungeon gate for you. Beyond the door is mereley a torchlit stairwell." << endl
 				<< "As you enter, the gate is shut behind you and a mechanical lock clicks. You realize that the only" << endl
-				<< "direction you will travel for the rest of your life is into the depths of the dungeon.";
+				<< "direction you will travel for the rest of your life is into the depths of the dungeon.\n";
 			system("pause");
 		}
 		if (x == 4)
@@ -191,6 +183,7 @@ int main()
 	};
 	while (exit == 0)
 	{
+		
 		system("cls");
 		HUD();
 		cout << "The chamber you are in has 3 paths." << endl << endl
@@ -203,43 +196,46 @@ int main()
 		if (x == 0)
 		{
 			cout << "You have committed suicide and your journey ends." << endl;
-			exit = 1;
+			system("pause");
+			return 0;
 		}
 		if (x == 1)
 		{
 			cout << "You reach a door in the forward stairwell and enter the chamber beyond." << endl; 
 			system("pause");
 			RmGen();
+			ScoreFunc(0);
 		}
 		if (x == 2)
 		{
 			cout << "You reach a door in the left stairwell and enter the chamber beyond." << endl;
 			system("pause");
 			RmGen();
+			ScoreFunc(0);
 		}
 		if (x == 3)
 		{
 			cout << "You reach a door in the right stairwell and enter the chamber beyond." << endl;
 			system("pause");
 			RmGen();
+			ScoreFunc(0);
 		}
-		if ( restart == 2)
+		if (x == 4)
 		{
-			string PlayerScoreRef = Player.PlayerName;
-			vector<vector<string>> scores = createVector("highscores.txt");
-			vector<string> newScore{ PlayerScoreRef, to_string(Score) };
-			scores = updateVector(scores, newScore);
-			saveToFile(scores, "highscores.txt");
-			++exit;
+			Player.Hlth = 0;
+		}
+		if (restart == 0)
+		{
+			savehs(Player.PlayerName, Score);
+			exit = 1;
 		}
 		if (restart == 1)
 		{
-			string PlayerScoreRef = Player.PlayerName;
-			vector<vector<string>> scores = createVector("highscores.txt");
-			vector<string> newScore{ PlayerScoreRef, to_string(Score) };
-			scores = updateVector(scores, newScore);
-			saveToFile(scores, "highscores.txt");
+			savehs(Player.PlayerName, Score);
 			main();
 		}
+		
+		
+		XpSys(EP, ExFunc);
 	}
 }

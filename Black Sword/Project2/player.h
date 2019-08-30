@@ -16,7 +16,7 @@ double Score = 0; // scores player performance, used in xp calculation
 double EP = 0;
 double Lvl = 1;
 double Exp = EP * Score*0.8;
-int ExFunc = pow(Lvl + 1, 3);
+int ExFunc = pow(Lvl, 3);
 
 class Character
 {
@@ -44,7 +44,7 @@ Item Armor;
 
 void ScoreFunc(double EnP)
 {
-	Score = Score + EnP * Lvl * RmNum * 0.0216;
+	Score = Score + EnP * Lvl * RmNum + RmNum;
 };
 
 void Soul()
@@ -138,7 +138,7 @@ void PlrLvl()
 		system("pause");
 	}
 	++Lvl;
-	ExFunc = pow(Lvl + 1, 3);
+	ExFunc = pow(Lvl, 3);
 };
 
 void XpSys(double EP, int xFunc)
@@ -162,14 +162,14 @@ void XpSys(double EP, int xFunc)
 
 void HUD() // player stats no enemy
 {
-	XpSys(EP, pow(Lvl + 1, 3));
+	XpSys(EP, pow(Lvl, 3));
 	cout << Player.PlayerName << "    ||||    No Enemy" << endl
 		<< "Health: " << Player.Hlth << "    ||||" << endl
 		<< "Attack: " << Player.Atk << "    ||||" << endl
 		<< "Defense: " << Player.Def << "    ||||" << endl
 		<< "Weapon: " << Weapon.ItemColor << " " << Weapon.ItemName << " " << Weapon.ItemLegend << " | Armor: " << Armor.ItemColor << " " << Armor.ItemName << " " << Armor.ItemLegend << endl
 		<< "Score: " << Score << " | Depth: " << RmNum << " | Lvl " << Lvl << " " << Player.Soul << endl 
-		<< "Xp: " << EP << " | Xp Needed: " << ExFunc << endl << endl << endl;
+		<< "Xp: " << EP << " | Xp Needed: " << pow(Lvl, 3) << endl << endl << endl;
 };
 
 void EHUD() // player stats with enemy
@@ -181,7 +181,7 @@ void EHUD() // player stats with enemy
 		<< "Defnese: " << Player.Def << "    ||||    " << "Defense: " << Enemy.Def << endl
 		<< "Weapon: " << Weapon.ItemColor << " " << Weapon.ItemName << " " << Weapon.ItemLegend << " | Armor: " << Armor.ItemColor << " " << Armor.ItemName << " " << Armor.ItemLegend << endl
 		<< "Score: " << Score << " | Depth: " << RmNum << " | Lvl " << Lvl << " " << Player.Soul << endl
-		<< "Xp: " << EP << " | Xp Needed: " << ExFunc << endl << endl << endl;
+		<< "Xp: " << EP << " | Xp Needed: " << pow(Lvl, 3) << endl << endl << endl;
 };
 
 int Rstrt(int restart)
@@ -192,7 +192,6 @@ int Rstrt(int restart)
 		EHUD();
 		cout << "Your journey continues in another life..." << endl << endl;
 		system("pause");
-		restart = 1;
 	}
 	if (restart == 0)
 	{
@@ -200,7 +199,6 @@ int Rstrt(int restart)
 		EHUD();
 		cout << "Your journey ends as your soul fades to nothing." << endl << endl;
 		system("pause");
-		restart = 2;
 	}
 	return restart;
 }
@@ -229,66 +227,103 @@ void PlrAtk()
 	cout << Player.PlayerName << " dealt " << Dmg << " damage!" << endl << endl;
 };
 
-vector<string> split(string str, char delimiter) {
-	vector<string> internal;
-	stringstream ss(str); // Turn the string into a stream.
-	string tok;
-	while (getline(ss, tok, delimiter)) {
-		internal.push_back(tok); //Loops and adds each element to vector
+void loadhs() // loads file to array and prints to start screen
+{
+	string info;
+	cout << "=====High Scores====" << endl << "   NAME || SCORE" << endl << endl;
+	vector<string> hslist;
+	ifstream fin;
+	fin.open("highscores.txt");
+	while (fin >> info)
+	{
+		if (info.size() > 0)
+			hslist.push_back(info);
 	}
-	return internal;
+	for (int i = 0; i < hslist.size(); i += 2)
+	{
+		cout <<"    " << hslist[i] << " || " << hslist[i+1] << endl;
+	}
+	hslist.clear();
+	fin.close();
 };
 
-//Returns new sorted vector of vectors (2 dimensional array)
-//Input old score vector of vectors, and new score vector
-vector< vector<string> > updateVector(vector< vector<string> > oldVector, vector<string> row) {
-	vector< vector<string> > newVector;
-	bool pushed = false; //Check if row has been inserted
-	for (int i = 0; i < oldVector.size(); i++) {
-		//Iterate through high scores vector
-		if (stoi(row[1]) > stoi(oldVector[i][1]) && pushed == false) {
-			//Check if row's score element is larger than the current high score element
-			//Must convert string to int using stoi to perform check
-			newVector.push_back(row);
-			pushed = true;
-		}
-		newVector.push_back(oldVector[i]);
+void savehs(string name, int score)
+{
+	string info;
+	vector<string> hsnames;
+	vector<int> hsscores;
+	ifstream fin;
+	ofstream fout;
+	int i = 0;
+	cout << "begin debug\n"; //first debug
+	fin.open("highscores.txt");
+	if (!fin.is_open())
+	{
+		cout << "failed to load file\n";
 	}
-	return newVector;
-};
+	cout << "file opened\n"; //sccessfully opened file
+	while (i < 21)// loads hs into vectors
+	{
+		fin >> info;
+		cout << "in loop iteration " << i << endl; // started loading vector from file
+		if (i % 2 == 0)
+		{
+			hsnames.push_back(info);
+			cout << hsnames[0] << " in vector names\n";
+		}
+		if (i % 2 == 1 || i == 1)
+		{
+			cout << "score loop begin\n";
+			stringstream temp(info);
+			cout << info << " stored as string stream\n";
+			int x;
+			temp >> x;
+			cout << x << " converted to int\n";
+			hsscores.push_back(x);
+			cout << hsscores[0] << " in vector scores\n";
 
-vector< vector<string> > createVector(std::string file) {
-	vector<vector<string>> fileVector;
-	ifstream fin(file);
-	if (fin.fail()) {
-		cerr << "Failed to open file";
-		return fileVector;
-	}
-	std::string line;
-	while (std::getline(fin, line)) {
-		vector<string> sline = split(line, ' ');
-		if (line.size() > 1) {
-			fileVector.push_back(sline);
 		}
+		i++;
 	}
 	fin.close();
-	return fileVector;
-};
-
-void saveToFile(vector< vector<string>> inputVector, std::string file) {
-	ofstream fout(file);
-	for (int i = 0; inputVector.size(); i++) {
-		fout << inputVector[i][0] << " " << inputVector[i][1] << endl;
+	cout << "file closed\n";
+	for (int j = 0; j < hsscores.size(); j++)
+	{
+		cout << hsscores[j] << " score in iteration " << j << endl;
+		cout << "compare loop begin\n";
+		if (hsscores[j] < score)
+		{
+			
+			hsnames.insert(hsnames.begin() + j, name);
+			hsscores.insert(hsscores.begin() + j, score);
+			hsnames.erase(hsnames.end() - 1);
+			hsscores.erase(hsscores.end() - 1);
+			j = hsscores.size();
+		}
+		cout << "test condition finished\n";
+	}
+	cout << "highscore save begin\n";
+	fout.open("highscores.txt");
+	if (!fout.is_open())
+	{
+		cout << "failed to load file\n";
+	}
+	cout << "file opened\n";
+	int k = 0, l = 0;
+	for (int q = 0; q < 20; q++)
+	{
+		cout << "begin save iteration " << q << endl;
+		if (q % 2 == 0)
+		{
+			fout << hsnames[k] << " ";
+			k++;
+		}
+		if (q % 2 == 1)
+		{
+			fout << hsscores[l] << endl;
+			l++;
+		}
 	}
 	fout.close();
-};
-
-void outputScores(vector<vector<string>> scores) {
-	cout << "===== HIGH SCORES =====" << endl;
-	for (int i = 0; i < scores.size(); i++) {
-		string name = scores[i][0];
-		int score = stoi(scores[i][1]);
-		cout << "Player: " << name << " Score: " << score << endl;
-	}
-	cout << "=======================" << endl;
+	cout << " debug success";
 };
